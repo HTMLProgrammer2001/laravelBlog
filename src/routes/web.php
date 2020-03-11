@@ -12,9 +12,10 @@
 */
 
 Route::get('/', function () {
-    return response("Index");
+    return view('welcome');
 });
 
-Route::get('/test', function(){
-	return response("Test");
-});
+Route::get('/admin', 'AdminDashboardController@index');
+
+Route::resource('/admin/categories', 'AdminCategoriesController');
+Route::resource('/admin/tags', 'AdminTagController');
