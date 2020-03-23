@@ -11,7 +11,7 @@ class User extends Authenticatable
     use Notifiable;
 
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email',
     ];
 
     protected $hidden = [
@@ -33,7 +33,6 @@ class User extends Authenticatable
     public static function add($fields){
         $user = new static;
         $user->fill($fields);
-        $user->password = bcrypt($fields['password']);
         $user->save();
 
         return $user;
@@ -41,7 +40,6 @@ class User extends Authenticatable
 
     public function edit($fields){
         $this->fill($fields);
-        $this->password = bcrypt($fields['password']);
         $this->save();
     }
 
@@ -54,19 +52,22 @@ class User extends Authenticatable
     public function uploadAvatar($img){
         if($img == null) return;
 
-        Storage::delete('uploads/' . $this->image);
+        if($this->avatar)
+            \Storage::delete('uploads/' . $this->avatar);
 
-        $filename = str_random(10) . '.' . $img->extension();
-        $img->saveAs('uploads', $filename);
-        $this->image = $filename;
+        $pool = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+        $filename = substr(str_shuffle(str_repeat($pool, 5)), 0, 10) . '.' . $img->extension();
+        $img->storeAs('uploads', $filename);
+        $this->avatar = $filename;
         $this->save();
     }
 
     public function getAvatar(){
-        if($this->image == null)
-            return '/img/no-userImage.png';
+        if($this->avatar == null)
+            return '/uploads/no-userImage.png';
 
-        return '/uploads/' . $this->image;
+        return '/uploads/' . $this->avatar;
     }
 
     public function makeAdmin(){
@@ -97,5 +98,12 @@ class User extends Authenticatable
             $this->unban();
         else
             $this->ban();
+    }
+
+    public function generatePassword($password){
+        if($password != null){
+            $this->password = bcrypt($password);
+            $this->save();
+        }
     }
 }

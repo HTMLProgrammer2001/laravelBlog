@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use \Cviebrock\EloquentSluggable\Sluggable;
+use App\Post;
 
 class Category extends Model
 {
@@ -12,7 +13,7 @@ class Category extends Model
     protected $fillable = ['title'];
 
     public function posts(){
-        return $this->hasMany(Posts::class);
+        return $this->hasMany(Post::class);
     }
 
     public function sluggable()
