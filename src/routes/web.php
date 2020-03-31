@@ -20,6 +20,7 @@ Route::group(['middleware' => 'admin', 'prefix' => 'admin', 'namespace' => 'Admi
     Route::resource('users', 'UsersController');
     Route::resource('posts', 'PostsController');
     Route::resource('comments', 'CommentsController');
+    Route::resource('subscribers', 'SubscribersController');
 });
 
 //main pages

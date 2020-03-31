@@ -49,7 +49,7 @@
                                 {{ method_field('DELETE') }}
 
                                 <button type = "submit" onclick="return confirm('Are you sure?')">
-                                    <a href="{{ route('tags.destroy', $tag->id)}}" class="fa fa-remove"></a>
+                                    <i class="fa fa-remove"></i>
                                 </button>
                             </form>
                         </td>

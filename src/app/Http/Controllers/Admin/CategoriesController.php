@@ -50,8 +50,6 @@ class CategoriesController extends Controller
     }
 
     public function show(Category $category){
-        $category->delete();
-
-        return redirect()->route('categories.index');
+        return abort(404);
     }
 }

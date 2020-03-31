@@ -98,23 +98,25 @@
                     </div><!--related post carousel-->
 
                     @foreach($post->comments as $comment)
-                        <div class="bottom-comment"><!--bottom comment-->
-                            <div class="comment-img">
-                                <img class="img-circle" style="width: 75px; height: 75px" src="{{$comment->author->getAvatar()}}" alt="">
+                        @if($comment->status)
+                            <div class="bottom-comment"><!--bottom comment-->
+                                <div class="comment-img">
+                                    <img class="img-circle" style="width: 75px; height: 75px" src="{{$comment->author->getAvatar()}}" alt="">
+                                </div>
+
+                                <div class="comment-text">
+                                    <a href="#" class="replay btn pull-right">Replay</a>
+                                    <h5>{{$comment->author->name}}</h5>
+
+                                    <p class="comment-date">
+                                        December, 02, 2015 at 5:57 PM
+                                    </p>
+
+
+                                    <p class="para">{{$comment->text}}</p>
+                                </div>
                             </div>
-
-                            <div class="comment-text">
-                                <a href="#" class="replay btn pull-right">Replay</a>
-                                <h5>{{$comment->author->name}}</h5>
-
-                                <p class="comment-date">
-                                    December, 02, 2015 at 5:57 PM
-                                </p>
-
-
-                                <p class="para">{{$comment->text}}</p>
-                            </div>
-                        </div>
+                        @endif
                     @endforeach
                     <!-- end bottom comment-->
 

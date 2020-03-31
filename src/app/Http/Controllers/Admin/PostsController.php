@@ -77,9 +77,7 @@ class PostsController extends Controller
      */
     public function show(Post $post)
     {
-        $post->remove();
-
-        return redirect()->route('posts.index');
+        return abort(404);
     }
 
     /**

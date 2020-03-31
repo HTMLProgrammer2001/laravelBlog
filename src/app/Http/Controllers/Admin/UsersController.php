@@ -54,9 +54,7 @@ class UsersController extends Controller
      */
     public function show(User $user)
     {
-        $user->delete();
-
-        return redirect()->route('users.index');
+        return abort(404);
     }
 
     /**

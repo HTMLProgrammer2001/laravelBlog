@@ -50,8 +50,6 @@ class TagController extends Controller
     }
 
     public function show(Tag $tag){
-        $tag->delete();
-
-        return redirect()->route('tags.index');
+        return abort(404);
     }
 }

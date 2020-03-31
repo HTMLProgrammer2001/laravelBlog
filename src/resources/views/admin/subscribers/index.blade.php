@@ -5,8 +5,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                Blank page
-                <small>it all starts here</small>
+                Подписчики
             </h1>
             <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -26,35 +25,38 @@
                 <!-- /.box-header -->
                 <div class="box-body">
                     <div class="form-group">
-                        <a href="{{route('posts.create')}}" class="btn btn-success">Добавить</a>
+                        <a href="{{route('subscribers.create')}}" class="btn btn-success">Добавить</a>
                     </div>
                     <table id="example1" class="table table-bordered table-striped">
                         <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Название</th>
-                            <th>Категория</th>
-                            <th>Теги</th>
-                            <th>Картинка</th>
+                            <th>Email</th>
                             <th>Действия</th>
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($posts as $post)
-                            <tr>
-                                <td>{{$post->id}}</td>
-                                <td>{{$post->title}}</td>
-                                <td>{{$post->getCategoryTitle()}}</td>
-                                <td>{{$post->getTagsTitles()}}</td>
-                                <td>
-                                    <img src="{{$post->getImage()}}" alt="" width="100">
-                                </td>
-                                <td>
-                                    <a href="{{route('posts.edit', $post->id)}}" class="fa fa-pencil"></a>
 
-                                    <form method="POST" action = "{{ route('posts.destroy', $post->id) }}">
-                                        {{ csrf_field() }}
-                                        {{ method_field('DELETE') }}
+                        @foreach($subscribers as $subscriber)
+                            <tr>
+                                <td>{{$subscriber->id}}</td>
+                                <td>{{$subscriber->email}}</td>
+                                <td>
+                                    <form action="{{route('subscribers.update', $subscriber->id)}}" method="post">
+                                        @csrf
+                                        @method('PUT')
+                                        <button type = "submit" onclick="return confirm('Are you sure?')">
+                                            @if(!$subscriber->token)
+                                                <i class="fa fa-thumbs-o-down"></i>
+                                            @else
+                                                <i class="fa fa-thumbs-o-up"></i>
+                                            @endif
+                                        </button>
+                                    </form>
+
+                                    <form method="POST" action = "{{ route('subscribers.destroy', $subscriber->id) }}">
+                                        @csrf
+                                        @method('DELETE')
 
                                         <button type = "submit" onclick="return confirm('Are you sure?')">
                                             <i class="fa fa-remove"></i>
@@ -63,7 +65,7 @@
                                 </td>
                             </tr>
                         @endforeach
-                        </tfoot>
+                        </tbody>
                     </table>
                 </div>
                 <!-- /.box-body -->

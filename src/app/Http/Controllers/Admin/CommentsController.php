@@ -27,9 +27,7 @@ class CommentsController extends Controller
 
     public function show(Comment $comment)
     {
-        $comment->remove();
-
-        return redirect()->route('comments.index');
+        return abort(404);
     }
 
     public function edit($id)
