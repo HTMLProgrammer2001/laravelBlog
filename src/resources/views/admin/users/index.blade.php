@@ -51,8 +51,8 @@
                                     <a href="{{ route('users.edit', $user->id) }}" class="fa fa-pencil"></a>
 
                                     <form method="POST" action = "{{ route('users.destroy', $user->id) }}">
-                                        {{ csrf_field() }}
-                                        {{ method_field('DELETE') }}
+                                        @csrf
+                                        @method('DELETE')
 
                                         <button type = "submit" onclick="return confirm('Are you sure?')">
                                             <i class="fa fa-remove"></i>

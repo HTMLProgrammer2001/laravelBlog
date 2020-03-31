@@ -130,6 +130,6 @@ class PostsController extends Controller
     {
         $post->remove();
 
-        return redirect('posts.index');
+        return redirect()->route('posts.index');
     }
 }
