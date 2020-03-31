@@ -37,7 +37,7 @@
                                         {!! $post->content !!}
 
                                         <div class="social-share">
-                                            <span class="social-share-title pull-left text-capitalize">By Rubel On {{$post->date}}</span>
+                                            <span class="social-share-title pull-left text-capitalize">By {{$post->author->name}} On {{$post->date}}</span>
                                         </div>
                                     </div>
                                 </div>

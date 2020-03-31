@@ -23,9 +23,9 @@
 
                 <div class="p-content">
                     <a href="{{route('post.show', $popularPost->slug)}}" class="text-uppercase">
-                        {{$post->title}}
+                        {{$popularPost->title}}
                     </a>
-                    <span class="p-date">{{$post->date}}</span>
+                    <span class="p-date">{{$popularPost->date}}</span>
 
                 </div>
             </div>

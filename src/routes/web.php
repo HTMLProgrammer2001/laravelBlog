@@ -11,28 +11,38 @@
 |
 */
 
-use \Illuminate\Support\Facades\File;
+//admin panel
+Route::group(['middleware' => 'admin', 'prefix' => 'admin', 'namespace' => 'Admin'], function (){
+    Route::get('/', 'DashboardController@index');
 
+    Route::resource('categories', 'CategoriesController');
+    Route::resource('tags', 'TagController');
+    Route::resource('users', 'UsersController');
+    Route::resource('posts', 'PostsController');
+    Route::resource('comments', 'CommentsController');
+});
+
+//main pages
 Route::get('/', 'HomeController@index');
 Route::get('/post/{slug}', 'HomeController@show')->name('post.show');
 Route::get('/tag/{tag}', 'HomeController@tag')->name('tag.show');
 Route::get('/category/{category}', 'HomeController@category')->name('category.show');
+Route::get('uploads/{filename}', 'UploadController');
 
-Route::get('/admin', 'AdminDashboardController@index');
+Route::post('/comments', 'CreateComment')->name('saveComment');
 
-Route::get('uploads/{filename}', function($filename)
-{
-    $filePath = storage_path().'/app/uploads/'.$filename;
+//login and register
+Route::middleware('guest')->group(function (){
+    Route::post('/login', 'AuthController@login')->name('login');
+    Route::view('/login', 'pages.login');
 
-    if ( ! File::exists($filePath))
-    {
-        return Response::make($filePath . " File does not exist.", 404);
-    }
-
-    return Storage::response('uploads/' . $filename);
+    Route::post('/register', 'AuthController@register')->name('register');
+    Route::view('/register', 'pages.register');
 });
 
-Route::resource('/admin/categories', 'AdminCategoriesController');
-Route::resource('/admin/tags', 'AdminTagController');
-Route::resource('/admin/users', 'AdminUsersController');
-Route::resource('/admin/posts', 'AdminPostsController');
+//authorization users
+Route::middleware('auth')->group(function (){
+    Route::post('/profile', 'ProfileController@store');
+    Route::get('/profile', 'ProfileController@index')->name('profile');
+    Route::get('/logout', 'AuthController@logout')->name('logout');
+});

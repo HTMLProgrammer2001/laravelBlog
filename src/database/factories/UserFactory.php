@@ -2,9 +2,7 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\Post;
-use App\Category;
-use App\Tag;
+use App\User;
 use Faker\Generator as Faker;
 use Illuminate\Support\Str;
 
@@ -19,28 +17,12 @@ use Illuminate\Support\Str;
 |
 */
 
-$factory->define(Post::class, function (Faker $faker) {
+$factory->define(User::class, function (Faker $faker) {
     return [
-        'title' => $faker->sentence,
-        'content' => $faker->sentence,
-        'image' => '5qyvzkiJMR.jpeg',
-        'date' => '08/09/17', // password
-        'views' => $faker->numberBetween(0, 5000),
-        'category_id' => 1,
-        'user_id' => 1,
-        'status' => 1,
-        'is_featured' => 0
-    ];
-});
-
-$factory->define(Category::class, function (Faker $faker) {
-    return [
-        'title' => $faker->word
-    ];
-});
-
-$factory->define(Tag::class, function (Faker $faker) {
-    return [
-        'title' => $faker->word
+        'name' => $faker->name,
+        'email' => $faker->email,
+        'password' => \Illuminate\Support\Facades\Hash::make('200120072017'),
+        'is_admin' => 1,
+        'status' => 0
     ];
 });

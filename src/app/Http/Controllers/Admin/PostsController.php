@@ -1,13 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Category;
 use App\Post;
 use App\Tag;
 use Illuminate\Http\Request;
 
-class AdminPostsController extends Controller
+class PostsController extends Controller
 {
     /**
      * Display a listing of the resource.

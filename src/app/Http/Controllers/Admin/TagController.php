@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Tag;
 
-class AdminTagController extends Controller
+class TagController extends Controller
 {
     public function index(){
         $tags = Tag::all();

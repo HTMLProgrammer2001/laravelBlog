@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Category;
 
-class AdminCategoriesController extends Controller
+class CategoriesController extends Controller
 {
     public function index(){
         $categories = Category::all();
