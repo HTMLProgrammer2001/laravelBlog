@@ -31,6 +31,13 @@ Route::get('uploads/{filename}', 'UploadController');
 
 Route::post('/comments', 'CreateComment')->name('saveComment');
 
+Route::post('/subscribe/create', 'SubscribeController@create')->name('createSubscription');
+Route::get('/subscribe/confirm/{token}', 'SubscribeController@confirm');
+
+Route::get('/test', function (){
+    return 1;
+});
+
 //login and register
 Route::middleware('guest')->group(function (){
     Route::post('/login', 'AuthController@login')->name('login');

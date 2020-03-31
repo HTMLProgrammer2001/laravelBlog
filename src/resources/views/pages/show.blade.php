@@ -2,13 +2,6 @@
 
 @section('content')
     <div class="main-content">
-
-        @if(session('success_message'))
-            <div class="alert alert-success">
-                {{session('success_message')}}
-            </div>
-        @endif
-
         <div class="container">
             <div class="row">
                 <div class="col-md-8">

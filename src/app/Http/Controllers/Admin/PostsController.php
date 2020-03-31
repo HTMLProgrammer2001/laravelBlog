@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Events\PostPublish;
 use App\Http\Controllers\Controller;
 use App\Category;
 use App\Post;
@@ -50,12 +51,20 @@ class PostsController extends Controller
             'image' => 'nullable|image'
         ]);
 
+        //create post
         $post = Post::add($request->all());
+
         $post->uploadImage($request->file('thumb'));
+
         $post->setCategory($request->get('category'));
         $post->setTags($request->get('tags'));
+
+        //set status and featured bools
         $post->toggleStatus($request->get('status'));
         $post->toggleFeatured($request->get('is_featured'));
+
+        //dispatch event to confirm subscribers
+        event(new PostPublish($post));
 
         return redirect()->route('posts.index');
     }
