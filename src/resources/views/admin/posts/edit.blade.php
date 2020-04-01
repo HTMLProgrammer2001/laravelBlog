@@ -6,7 +6,6 @@
         <section class="content-header">
             <h1>
                 Изменить статью
-                <small>приятные слова..</small>
             </h1>
         </section>
 

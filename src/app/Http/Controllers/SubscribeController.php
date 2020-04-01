@@ -18,7 +18,7 @@ class SubscribeController extends Controller
 
         Mail::to($subs->email)->send(new SubscribeConfirm($subs->token));
 
-        return back()->with('success_message', 'Confirm your email.');
+        return back()->with('success_message', 'Просмотрите Ваш почтовый ящик');
     }
 
     public function confirm(Request $request, $token){
@@ -30,6 +30,6 @@ class SubscribeController extends Controller
         $subs->token = null;
         $subs->save();
 
-        return redirect('/')->with('success_message', 'Your mail was confirmed');
+        return redirect('/')->with('success_message', 'Ваша почта подтверждена');
     }
 }

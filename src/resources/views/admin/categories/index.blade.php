@@ -5,13 +5,11 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Blank page
-            <small>it all starts here</small>
+            Категории
         </h1>
         <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li><a href="#">Examples</a></li>
-            <li class="active">Blank page</li>
+            <li><a href="/admin"><i class="fa fa-dashboard"></i>Главная</a></li>
+            <li><a href="{{route('categories.index')}}">Категории</a></li>
         </ol>
     </section>
 
@@ -38,7 +36,7 @@
                     </thead>
                     <tbody>
 
-                    @foreach($categories as $category):
+                    @foreach($categories as $category)
                         <tr>
                             <td>{{$category->id}}</td>
                             <td>{{$category->title}}</td>

@@ -8,9 +8,8 @@
                 Подписчики
             </h1>
             <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                <li><a href="#">Examples</a></li>
-                <li class="active">Blank page</li>
+                <li><a href="/admin"><i class="fa fa-dashboard"></i>Главная</a></li>
+                <li><a href="{{route('subscribers.index')}}">Подписчики</a></li>
             </ol>
         </section>
 

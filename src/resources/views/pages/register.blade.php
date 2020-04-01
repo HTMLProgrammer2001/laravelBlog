@@ -9,7 +9,7 @@
 
                     <div class="leave-comment mr0"><!--leave comment-->
 
-                        <h3 class="text-uppercase">Register</h3>
+                        <h3 class="text-uppercase">Регистрация</h3>
                         <br>
                         <form class="form-horizontal contact-form" role="form" method="post" action="{{route('register')}}">
                             @csrf
@@ -32,7 +32,7 @@
                                            placeholder="password" value="{{old('password')}}">
                                 </div>
                             </div>
-                            <button type="submit" name="submit" class="btn send-btn">Register</button>
+                            <button type="submit" name="submit" class="btn send-btn">Зарегистрироватья</button>
 
                         </form>
                     </div><!--end leave comment-->

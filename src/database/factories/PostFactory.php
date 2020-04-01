@@ -9,7 +9,7 @@ $factory->define(Post::class, function (Faker $faker) {
     return [
         'title' => $faker->sentence,
         'content' => $faker->sentence,
-        'image' => '5qyvzkiJMR.jpeg',
+        'image' => 'Cp4OK82aqD.jpeg',
         'date' => '08/09/17',
         'views' => $faker->numberBetween(0, 5000),
         'category_id' => 1,

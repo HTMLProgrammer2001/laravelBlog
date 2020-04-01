@@ -9,7 +9,7 @@
 
                     <div class="leave-comment mr0"><!--leave comment-->
 
-                        <h3 class="text-uppercase">My profile</h3>
+                        <h3 class="text-uppercase">Профиль</h3>
                         <br>
                         <img src="{{$user->getAvatar()}}" alt="" class="profile-image">
                         <form enctype="multipart/form-data" class="form-horizontal contact-form" role="form" method="post" action="{{route('profile')}}">
@@ -39,7 +39,7 @@
                                     <input type="file" class="form-control" id="image" name="avatar">
                                 </div>
                             </div>
-                            <button type="submit" name="submit" class="btn send-btn">Update</button>
+                            <button type="submit" name="submit" class="btn send-btn">Обновить</button>
 
                         </form>
                     </div><!--end leave comment-->

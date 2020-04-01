@@ -5,8 +5,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                Добавить пользователя
-                <small>приятные слова..</small>
+                Изменить пользователя
             </h1>
         </section>
 
@@ -16,7 +15,7 @@
             <!-- Default box -->
             <div class="box">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Добавляем пользователя</h3>
+                    <h3 class="box-title">Изменяем пользователя</h3>
                 </div>
                 <form
                         method="POST"
@@ -66,8 +65,8 @@
                     <button class="btn btn-warning pull-right">Изменить</button>
                 </div>
                 <!-- /.box-footer-->
+                </form>
             </div>
-            </form>
             <!-- /.box -->
 
         </section>

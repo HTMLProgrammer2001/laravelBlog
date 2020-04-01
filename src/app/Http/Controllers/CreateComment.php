@@ -27,6 +27,6 @@ class CreateComment extends Controller
         $comment->status = 0;
         $comment->save();
 
-        return back()->with('success_message', 'Your comment was saved and will publish soon');
+        return back()->with('success_message', 'Ваш комментарий сохранен и скоро будет опубликован');
     }
 }

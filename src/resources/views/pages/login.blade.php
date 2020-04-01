@@ -8,7 +8,7 @@
                 <div class="col-md-8">
                     <div class="leave-comment mr0"><!--leave comment-->
 
-                        <h3 class="text-uppercase">Login</h3>
+                        <h3 class="text-uppercase">Вход</h3>
 
                         @if(session('status'))
                             <div>{{session('status')}}</div>
@@ -31,7 +31,7 @@
                                            placeholder="password" value="{{old('password')}}">
                                 </div>
                             </div>
-                            <button type="submit" name="submit" class="btn send-btn">Login</button>
+                            <button type="submit" name="submit" class="btn send-btn">Войти</button>
                         </form>
                     </div><!--end leave comment-->
                 </div>

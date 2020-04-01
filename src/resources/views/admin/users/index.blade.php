@@ -5,13 +5,11 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                Blank page
-                <small>it all starts here</small>
+                Пользователи
             </h1>
             <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                <li><a href="#">Examples</a></li>
-                <li class="active">Blank page</li>
+                <li><a href="/admin"><i class="fa fa-dashboard"></i>Главная</a></li>
+                <li><a href="{{route('users.index')}}">Пользователи</a></li>
             </ol>
         </section>
 

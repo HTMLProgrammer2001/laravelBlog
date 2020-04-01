@@ -2,39 +2,19 @@
     <div class="primary-sidebar">
 
         <aside class="widget news-letter">
-            <h3 class="widget-title text-uppercase text-center">Get Newsletter</h3>
+            <h3 class="widget-title text-uppercase text-center">Получать рассылку</h3>
 
             <form action="{{route('createSubscription')}}" method="post">
                 @csrf
 
-                <input type="email" name="email" placeholder="Your email address">
-                <input type="submit" value="Subscribe Now"
+                <input type="email" name="email" placeholder="Email">
+                <input type="submit" value="Подписаться"
                        class="text-uppercase text-center btn btn-subscribe">
             </form>
 
         </aside>
         <aside class="widget">
-            <h3 class="widget-title text-uppercase text-center">Popular Posts</h3>
-
-            @foreach($popularPosts as $popularPost)
-                <div class="popular-post">
-                    <a href="{{route('post.show', $popularPost->slug)}}" class="popular-img">
-                        <img src="{{$popularPost->getImage()}}" alt="">
-                        <div class="p-overlay"></div>
-                    </a>
-
-                <div class="p-content">
-                    <a href="{{route('post.show', $popularPost->slug)}}" class="text-uppercase">
-                        {{$popularPost->title}}
-                    </a>
-                    <span class="p-date">{{$popularPost->date}}</span>
-
-                </div>
-            </div>
-            @endforeach
-        </aside>
-        <aside class="widget">
-            <h3 class="widget-title text-uppercase text-center">Featured Posts</h3>
+            <h3 class="widget-title text-uppercase text-center">Избранные посты</h3>
 
             <div id="widget-feature" class="owl-carousel">
                 @foreach($featuredPosts as $featuredPost)
@@ -52,7 +32,7 @@
         </aside>
 
         <aside class="widget pos-padding">
-            <h3 class="widget-title text-uppercase text-center">Recent Posts</h3>
+            <h3 class="widget-title text-uppercase text-center">Недавние посты</h3>
 
             @foreach($recentPosts as $recentPost)
                 <div class="thumb-latest-posts">
@@ -73,7 +53,7 @@
         </aside>
 
         <aside class="widget border pos-padding">
-            <h3 class="widget-title text-uppercase text-center">Categories</h3>
+            <h3 class="widget-title text-uppercase text-center">Категории</h3>
             <ul>
                 @foreach($categories as $category)
                     <li>

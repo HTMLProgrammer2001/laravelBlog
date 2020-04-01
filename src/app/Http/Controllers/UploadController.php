@@ -20,7 +20,7 @@ class UploadController extends Controller
 
         if ( ! File::exists($filePath))
         {
-            return response($filePath . " File does not exist.", 404);
+            return response("Файл не существует " . $filePath, 404);
         }
 
         return Storage::response('uploads/' . $filename);

@@ -42,7 +42,7 @@
                     <div class="top-comment"><!--top comment-->
                         <img src="{{$post->author->getAvatar()}}" class="pull-left" alt="" style="width: 75px; height: 75px">
                         <h4>{{$post->author->name}}</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, asperiores corporis deserunt ea excepturi quia ut vero? Amet aut deleniti dicta eius harum incidunt molestiae odit, porro totam vero vitae.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut beatae blanditiis debitis dolorum, est fuga harum, iste iure laborum libero molestiae neque nihil possimus quasi quo sunt tempora unde voluptate?</p>
                     </div><!--top comment end-->
                     <div class="row"><!--blog next previous-->
                         <div class="col-md-6">
@@ -82,7 +82,7 @@
                     </div><!--blog next previous end-->
                     <div class="related-post-carousel"><!--related post carousel-->
                         <div class="related-heading">
-                            <h4>You might also like</h4>
+                            <h4>Тебе может понравиться</h4>
                         </div>
                         <div class="items">
                             @foreach($post->related() as $item)
@@ -105,11 +105,11 @@
                                 </div>
 
                                 <div class="comment-text">
-                                    <a href="#" class="replay btn pull-right">Replay</a>
+                                    <a href="#" class="replay btn pull-right">Ответить</a>
                                     <h5>{{$comment->author->name}}</h5>
 
                                     <p class="comment-date">
-                                        December, 02, 2015 at 5:57 PM
+                                        {{$comment->created_at}}
                                     </p>
 
 
@@ -122,7 +122,7 @@
 
                     @auth
                         <div class="leave-comment"><!--leave comment-->
-                        <h4>Leave a reply</h4>
+                        <h4>Комментировать</h4>
 
 
                         <form class="form-horizontal contact-form" role="form" method="post" action="{{route('saveComment')}}">
@@ -132,10 +132,10 @@
                             <div class="form-group">
                                 <div class="col-md-12">
 										<textarea class="form-control" rows="6" name="message"
-                                                  placeholder="Write Massage"></textarea>
+                                                  placeholder="Напишите комментарий"></textarea>
                                 </div>
                             </div>
-                            <button class="btn send-btn">Post Comment</button>
+                            <button class="btn send-btn">Опубликовать</button>
                         </form>
                     </div><!--end leave comment-->
                     @endauth
